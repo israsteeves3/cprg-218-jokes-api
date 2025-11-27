@@ -15,7 +15,20 @@ function getJoke(category) {
             console.error("Error fetching joke:", error);
             document.getElementById("output").textContent = "Failure";
         });
-}
+//this affects JUST the pun
+    if (category=="Pun"){
+        joketype.textContent = "A Random Pun"
+        console.log("Pun clicked")
+    }
+
+    //category is going to catch everything else, its from the URL 
+    else{
+        joketype.textContent = "A Random " + category + " Joke"
+        console.log("other clicked")
+    }
+    }
+
+
 
 //button
 const progBtn = document.getElementById("progBtn");
@@ -24,9 +37,31 @@ const punBtn = document.getElementById("punBtn");
 const spookyBtn = document.getElementById("spookyBtn");
 const xmasBtn = document.getElementById("xmasBtn");
 
-//event listeners
-progBtn.addEventListener("click", () => getJoke("Programming"));
-miscBtn.addEventListener("click", () => getJoke("Miscellaneous"));
-punBtn.addEventListener("click", () => getJoke("Pun"));
-spookyBtn.addEventListener("click", () => getJoke("Spooky"));
-xmasBtn.addEventListener("click", () => getJoke("Christmas"));
+
+progBtn.addEventListener("click", function (){
+    console.log("Programming clicked");
+    getJoke("Programming");
+});
+
+miscBtn.addEventListener("click", function(){
+    console.log("Miscellaneous clicked");
+    getJoke("Miscellaneous");
+});
+
+punBtn.addEventListener("click", function(){
+    console.log("Pun clicked");
+    getJoke("Pun");
+});
+
+spookyBtn.addEventListener("click", function(){
+    console.log("Spooky clicked");
+    getJoke("Spooky");
+});
+
+xmasBtn.addEventListener("click", function(){
+    console.log("xmas clicked");
+    getJoke("Christmas");
+});
+
+
+
